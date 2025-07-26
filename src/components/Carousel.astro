@@ -7,23 +7,14 @@ const { images, title } = Astro.props;
 ---
 
 
-
-<div id="default-carousel" class="relative w-full" data-carousel="slide">
+<div id="gallery" class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-         {images.map((link, index)=> (
-            <div class="hidden duration-700 ease-in-out" data-carousel-item={index === 0 ? "active" : ""}>
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96 rounded my-4 border-1 border-green-200">
+        {images.map((link)=> (
+            <div class="hidden duration-1000 ease-in-out transition transition-discrete" data-carousel-item="">
                 <img src={link} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={`Screenshot of the project ${title}`} />
             </div>
          ))}
-    </div>
-    <!-- Slider indicators -->
-    <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
     </div>
     <!-- Slider controls -->
     <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
@@ -43,3 +34,29 @@ const { images, title } = Astro.props;
         </span>
     </button>
 </div>
+<script>
+    const carousel: Element | null = document.querySelector('[data-carousel]');
+    const items = carousel?.querySelectorAll('[data-carousel-item]'); // Select all items in the carousel
+    const prevButton = carousel?.querySelector('[data-carousel-prev]');
+    const nextButton = carousel?.querySelector('[data-carousel-next]');
+    items?.item(0).classList.remove('hidden'); // Show the first item by default
+    let currentIndex = 0;
+    function showNextItem() {
+        items?.item(currentIndex).classList.add('hidden');
+        if (currentIndex +1 === items?.length) { // If we are at the last item
+            currentIndex = -1; // Reset to -1 so the next increment will be 0
+        }
+        items?.item(currentIndex + 1).classList.remove('hidden');
+        currentIndex = (currentIndex + 1);
+    }
+    function showPrevItem() {
+        items?.item(currentIndex).classList.add('hidden');
+        if (currentIndex -1 < 0) { // If we are at the first item
+            items?.length != undefined? currentIndex = items?.length : ''; // Reset to the last item
+        }
+        items?.item(currentIndex-1).classList.remove('hidden');
+        currentIndex = (currentIndex - 1);
+    }
+    nextButton?.addEventListener('click', showNextItem);
+    prevButton?.addEventListener('click', showPrevItem);
+</script>
