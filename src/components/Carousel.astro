@@ -7,12 +7,12 @@ const { images, title } = Astro.props;
 ---
 
 
-<div id="gallery" class="relative w-full" data-carousel="slide">
+<div id=`gallery-${title}` class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96 rounded my-4 border-1 border-green-200">
         {images.map((link)=> (
             <div class="hidden duration-1000 ease-in-out transition transition-discrete" data-carousel-item="">
-                <img src={link} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={`Screenshot of the project ${title}`} />
+                <img src={link} class="absolute block size-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={`Screenshot of the project ${title}`} />
             </div>
          ))}
     </div>
@@ -35,28 +35,30 @@ const { images, title } = Astro.props;
     </button>
 </div>
 <script>
-    const carousel: Element | null = document.querySelector('[data-carousel]');
-    const items = carousel?.querySelectorAll('[data-carousel-item]'); // Select all items in the carousel
-    const prevButton = carousel?.querySelector('[data-carousel-prev]');
-    const nextButton = carousel?.querySelector('[data-carousel-next]');
-    items?.item(0).classList.remove('hidden'); // Show the first item by default
-    let currentIndex = 0;
-    function showNextItem() {
-        items?.item(currentIndex).classList.add('hidden');
-        if (currentIndex +1 === items?.length) { // If we are at the last item
-            currentIndex = -1; // Reset to -1 so the next increment will be 0
+    let carousel = document.querySelectorAll('[data-carousel');
+    for (let i = 0; i < carousel.length; i++) { // Loop through each carousel
+        const items = carousel[i]?.querySelectorAll('[data-carousel-item]'); // Select all items in the carousel
+        const prevButton = carousel[i]?.querySelector('[data-carousel-prev]');
+        const nextButton = carousel[i]?.querySelector('[data-carousel-next]');
+        items?.item(0).classList.remove('hidden'); // Show the first item by default
+        let currentIndex = 0;
+        function showNextItem() {
+            items?.item(currentIndex).classList.add('hidden');
+            if (currentIndex +1 === items?.length) { // If we are at the last item
+                currentIndex = -1; // Reset to -1 so the next increment will be 0
+            }
+            items?.item(currentIndex + 1).classList.remove('hidden');
+            currentIndex = (currentIndex + 1);
         }
-        items?.item(currentIndex + 1).classList.remove('hidden');
-        currentIndex = (currentIndex + 1);
-    }
-    function showPrevItem() {
-        items?.item(currentIndex).classList.add('hidden');
-        if (currentIndex -1 < 0) { // If we are at the first item
-            items?.length != undefined? currentIndex = items?.length : ''; // Reset to the last item
+        function showPrevItem() {
+            items?.item(currentIndex).classList.add('hidden');
+            if (currentIndex -1 < 0) { // If we are at the first item
+                items?.length != undefined? currentIndex = items?.length : ''; // Reset to the last item
+            }
+            items?.item(currentIndex-1).classList.remove('hidden');
+            currentIndex = (currentIndex - 1);
         }
-        items?.item(currentIndex-1).classList.remove('hidden');
-        currentIndex = (currentIndex - 1);
+        nextButton?.addEventListener('click', showNextItem);
+        prevButton?.addEventListener('click', showPrevItem);
     }
-    nextButton?.addEventListener('click', showNextItem);
-    prevButton?.addEventListener('click', showPrevItem);
 </script>
