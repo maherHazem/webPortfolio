@@ -17,9 +17,12 @@ import Header from "../components/Header.astro";
 		<Header />
 		<slot />
 	</body>
+	<script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </html>
 
 <style is:global>
+	@plugin "flowbite/plugin";
+	@source "../../node_modules/flowbite";
 	:root {
 		color-scheme: light dark;
 	}

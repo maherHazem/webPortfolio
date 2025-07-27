@@ -5,18 +5,16 @@ export interface Props {
 }
 const { images, title } = Astro.props;
 ---
-
-
 <div id=`gallery-${title}` class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96 rounded my-4 border-1 border-green-200">
-        {images.map((link)=> (
-            <div class="hidden duration-1000 ease-in-out transition transition-discrete" data-carousel-item="">
+        {images.map((link, index)=> (
+            <div class="hidden duration-1000 ease-in-out transition" data-carousel-item={index === 0 ? 'active' : ''}>
                 <img src={link} class="absolute block size-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={`Screenshot of the project ${title}`} />
             </div>
          ))}
     </div>
-    <!-- Slider controls -->
+    <!-- Slider controls -->    
     <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
         <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
             <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -34,31 +32,3 @@ const { images, title } = Astro.props;
         </span>
     </button>
 </div>
-<script>
-    let carousel = document.querySelectorAll('[data-carousel');
-    for (let i = 0; i < carousel.length; i++) { // Loop through each carousel
-        const items = carousel[i]?.querySelectorAll('[data-carousel-item]'); // Select all items in the carousel
-        const prevButton = carousel[i]?.querySelector('[data-carousel-prev]');
-        const nextButton = carousel[i]?.querySelector('[data-carousel-next]');
-        items?.item(0).classList.remove('hidden'); // Show the first item by default
-        let currentIndex = 0;
-        function showNextItem() {
-            items?.item(currentIndex).classList.add('hidden');
-            if (currentIndex +1 === items?.length) { // If we are at the last item
-                currentIndex = -1; // Reset to -1 so the next increment will be 0
-            }
-            items?.item(currentIndex + 1).classList.remove('hidden');
-            currentIndex = (currentIndex + 1);
-        }
-        function showPrevItem() {
-            items?.item(currentIndex).classList.add('hidden');
-            if (currentIndex -1 < 0) { // If we are at the first item
-                items?.length != undefined? currentIndex = items?.length : ''; // Reset to the last item
-            }
-            items?.item(currentIndex-1).classList.remove('hidden');
-            currentIndex = (currentIndex - 1);
-        }
-        nextButton?.addEventListener('click', showNextItem);
-        prevButton?.addEventListener('click', showPrevItem);
-    }
-</script>
