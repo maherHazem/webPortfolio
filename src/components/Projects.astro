@@ -27,7 +27,7 @@ const PROJECTS = [
             <h3 class="text-xl md:text-2xl text-yellow-200">{title}</h3>
             <p>{description}</p>
             {images && (
-                    <Carousel images={images} title={title} client:load/>
+                    <Carousel images={images} title={title}/>
             )}
             <ul class="mt-2">
                 {tags.map(tag => (

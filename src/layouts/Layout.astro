@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -21,8 +22,6 @@ import Header from "../components/Header.astro";
 </html>
 
 <style is:global>
-	@plugin "flowbite/plugin";
-	@source "../../node_modules/flowbite";
 	:root {
 		color-scheme: light dark;
 	}
