@@ -3,7 +3,7 @@ export const languageList = {
     en: 'English (US)'
 }
 export const labels = {
-    es: {'title': 'Portfolio de Maher - Desarrollador Web y de Videojuegos con 2+ años de experiencia',
+    es: {'title': 'Porfolio de Maher - Desarrollador Web y de Videojuegos con 2+ años de experiencia',
     'content': 'Contrata a Maher, un desarrollador web y de videojuegos con más de 2 años de experiencia en la creación y mantenimiento de sitios web. Con sede en las Islas Canarias, España, Maher se especializa en desarrollar aplicaciones y soluciones para satisfacer las diversas necesidades de los clientes.',
     'nav.mobileMenu': 'Abrir menú principal',
     'nav.home': 'Inicio',
