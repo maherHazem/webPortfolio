@@ -24,7 +24,7 @@ Check out the live portfolio at: [https://your-portfolio-url.com]([https://your-
 - [Astro](https://astro.build) - The web framework for content-driven websites
 - [TypeScript](https://www.typescriptlang.org) - Typed JavaScript
 - [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS framework
-- [Flowbite]((https://flowbite.com/)) - Animation library
+- [Flowbite](https://flowbite.com/) - Animation library
 
 ## 📦 Project Structure
 
