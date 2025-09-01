@@ -17,7 +17,7 @@ A modern, performant web portfolio built with Astro, TypeScript, and Tailwind CS
 
 ## 🚀 Live Demo
 
-Check out the live portfolio at: [https://your-portfolio-url.com]([https://your-portfolio-url.com](https://glittering-biscuit-f63091.netlify.app/en/))
+Check out the live portfolio at: [https://glittering-biscuit-f63091.netlify.app/en/](https://glittering-biscuit-f63091.netlify.app/en/)
 
 ## 🛠️ Built With
 
