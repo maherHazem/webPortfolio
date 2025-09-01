@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Badge from '../../components/Badge.astro';
+import LinkedInIcon from '../../icons/LinkedIn.astro';
+import SocialPill from "../../components/SocialPill.astro";
+import GitHubIcons from '../../icons/GitHub.astro';
+import MailIcon from '../../icons/Mail.astro';
+import Experience from "../../components/Experience.astro";
+import SectionContainer from "../../components/SectionContainer.astro";
+import Briefcase from "../../icons/Briefcase.astro";
+import Code from "../../icons/Code.astro";
+import Projects from "../../components/Projects.astro";
+import Footer from "../../components/Footer.astro";
+import ContactIcon from "../../icons/Contact.astro";
+import { useTranslationsLabels } from "../../i18n/utils";
+import { languageList } from "../../i18n/ui";
+const currentLang = Astro.currentLocale || 'en';
+const translateLabels = useTranslationsLabels(
+	currentLang as keyof typeof languageList
+	);
+---
+
+<Layout>	
+	<main class="px-4">
+		<SectionContainer class="py-44 pb-24" id="home">
+			<h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex justify-center items-center flex-row gap-x-4 pb:6 lg:pb-10"><img class="rounded-full size-32" src="/profilePic/professionalPhoto.jpeg" alt="Maher Hazem">{translateLabels('h1.greeting')} <a class="flex justify-center items-center" href="https://www.linkedin.com/in/maher-hazem-mohammad-274576171/" target="_blank"><Badge>{translateLabels('h1.badge')}</Badge></a></h1>
+			<h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[800px]"><span class="opacity-80"> {translateLabels('h1.description.part1')}</span><span class="text-yellow-200/90"> {translateLabels('h1.description.part2')}</span> {translateLabels('h1.description.part3')}</h2>
+			<nav class="flex gap-4 mt-8 flex-wrap">
+				<SocialPill href="https://www.linkedin.com/in/maher-hazem-mohammad-274576171/">
+					<LinkedInIcon class="size-4 md:size-6"/>
+					Linkedin
+				</SocialPill>
+				<SocialPill href="https://github.com/maherHazem">
+					<GitHubIcons class="size-4 md:size-6"/>
+					GitHub
+				</SocialPill>
+				<SocialPill href="mailto:maherhazem@hotmail.com">
+					<MailIcon class="size-4 md:size-6"/>
+					maherhazem@hotmail.com
+				</SocialPill>
+			</nav>
+		</SectionContainer>
+		<SectionContainer id="experience">
+			<h2 class="text-2xl font-semibold mb-8">
+				<Briefcase class="inline-block size-6 mb-1"/>
+				{translateLabels('experience.title')}
+			</h2>
+			<Experience/>
+		</SectionContainer>
+		<SectionContainer id="projects">
+			<h2 class="text-2xl font-semibold mb-8">
+				<Code class="inline-block size-6 mb-1"/>
+				{translateLabels('projects.title')}
+			</h2>
+			<Projects/>
+		</SectionContainer>
+		<SectionContainer id="contact" class="pb-12">
+			<h2 class="text-2xl font-semibold mb-8">
+				<ContactIcon class="inline-block size-8 mb-1"/>
+				{translateLabels('contact.title')}
+			</h2>
+			<p class="mb-4">{translateLabels('contact.description')}</p>
+			<div class="flex justify-center items-center">
+				<SocialPill href="mailto:maherhazem@hotmail.com" class="bg-violet-700/60 text-white hover:text-black hover:bg-violet-400/60!">
+					<MailIcon class="size-4 md:size-6"/>
+					maherhazem@hotmail.com
+				</SocialPill>
+			</div>
+		</SectionContainer>
+		<Footer/>
+	</main>
+</Layout>

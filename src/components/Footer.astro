@@ -1,13 +1,21 @@
+---
+import { useTranslationsLabels } from "../i18n/utils";
+import { languageList } from "../i18n/ui";
+const currentLang = Astro.currentLocale || 'en';
+const translateLabels = useTranslationsLabels(
+	currentLang as keyof typeof languageList
+	);
+---
 <footer class="bg-white rounded-lg shadow-sm m-4 dark:bg-gray-800">
     <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-yellow-200 sm:text-center">© 2023 <a href="https://www.linkedin.com/in/maher-hazem-mohammad-274576171/" class="hover:underline">Maher Hazem</a>. All Rights Reserved.
+      <span class="text-sm text-yellow-200 sm:text-center">© 2025 <a href="https://www.linkedin.com/in/maher-hazem-mohammad-274576171/" class="hover:underline">Maher Hazem</a>. {translateLabels('footer.rights')}
     </span>
     <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
-            <a href="#home" class="hover:underline me-4 md:me-6">About</a>
+            <a href="#home" class="hover:underline me-4 md:me-6">{translateLabels('footer.about')}</a>
         </li>
         <li>
-            <a href="mailto:maherhazem@hotmail.com" class="hover:underline">Contact</a>
+            <a href="mailto:maherhazem@hotmail.com" class="hover:underline">{translateLabels('footer.contact')}</a>
         </li>
     </ul>
     </div>

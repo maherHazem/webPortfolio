@@ -1,24 +1,8 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro";
-
-const EXPERIENCE = [
-  {
-    date: 'April 2024 - March 2025',
-    title: 'Web developer | Telde\'s City Council',
-    description: 'Developed and maintained the city council\'s website, ensuring it was user-friendly and accessible. Along with the team, I implemented new features and optimized existing ones to improve user experience. Collaborated with designers to create a modern and responsive design that met the needs of the council and its citizens.',
-    last: true,
-  },
-  {
-    date: 'November 2023 - January 2024',
-    title: 'System Technician | LABERIT',
-    description: 'Setup of more than 800 computer systems for various schools across Gran Canaria, Fuerteventura, Lanzarote, and La Graciosa for a project that required more than 20,000 systems across all the islands. The responsibilities of the implementation included the correct layout of the equipment to connect it to the MEDUSA server, on-site IT troubleshooting, coordination with the rest of the team to distribute the more than 20,000 pieces of equipment as they arrived at the centers, reporting on the equipment received and whether it had been successfully implemented or if there had been any problems in real time, coordination with the centers that had received the equipment, etc.',
-  },
-  {
-    date: 'October 2023 - November 2023',
-    title: 'IT Security Auditor | Newport Group',
-    description: 'Conducting security audits for several company buildings, training employees on good security practices, cleaning malware from several computers, documenting security risks based on the AEDP, among others.',
-  },
-];
+import {experience} from "../i18n/ui";
+const currentLang = Astro.currentLocale || 'en';
+const EXPERIENCE = experience[currentLang as keyof typeof experience] || experience['en'];
 ---
 <ol class="relative border-s border-gray-200 dark:border-gray-700 ml-2.5">
     {

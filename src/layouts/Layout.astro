@@ -1,17 +1,23 @@
 ---
 import Header from "../components/Header.astro";
 import "../styles/global.css";
+import { useTranslationsLabels } from "../i18n/utils";
+import { languageList } from "../i18n/ui";
+const currentLang = Astro.currentLocale || 'en';
+const translateLabels = useTranslationsLabels(
+	currentLang as keyof typeof languageList
+	);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang=`${currentLang}`>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Hire Maher, a skilled web and video game developer with over 2 years of experience in creating and maintaining websites. Based in the Canary Islands, Spain, Maher specializes in developing applications and solutions to meet diverse client needs." />
+		<meta name="description" content=`${translateLabels('content')}` />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Maher's Portfolio - Web and Video Game Developer with +2 Years of Experience</title>
+		<title>{translateLabels('title')}</title>
 	</head>
 	<body>
 		<div class="fixed inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
