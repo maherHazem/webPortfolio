@@ -20,6 +20,7 @@ export const labels = {
     'contact.title': 'Contacto',
     'contact.description': 'No dudes en contactarme por correo electrónico o conectarte conmigo en LinkedIn. Siempre estoy abierto a discutir nuevos proyectos, ideas creativas u oportunidades para ser parte de tu visión.',
     'github.check': 'Míralo en GitHub',
+    'website.check': 'Visita el sitio web',
     'footer.rights': 'Todos los derechos reservados.',
     'footer.about': 'Sobre mí',
     'footer.contact': 'Contacta conmigo',
@@ -41,6 +42,7 @@ export const labels = {
     'contact.title': 'Contact',
     'contact.description': 'Feel free to reach out to me via email or connect with me on LinkedIn. I am always open to discussing new projects, creative ideas, or opportunities to be part of your vision.',
     'github.check': 'Check it out on GitHub',
+    'website.check': 'Visit the website',
     'footer.rights': 'All rights reserved.',
     'footer.about': 'About',
     'footer.contact': 'Contact me',
@@ -93,6 +95,14 @@ export const projects = {
         images: ["/projects/clinic.webp", "/projects/clinic2.webp", "/projects/clinic3.webp", "/projects/clinic4.webp", "/projects/clinic5.webp", "/projects/clinic6.webp", "/projects/clinic7.webp", "/projects/clinic8.webp", "/projects/clinic9.webp", "/projects/clinic10.webp", "/projects/clinic11.webp"],
         tags: ["E-Commerce", "Wordpress", "Elementor", "Formulario de Contacto", "Programación de Citas", "Diseño Responsivo"]},
     {
+        title: "Ajedrez local",
+        description: "Un juego de ajedrez local para dos jugadores con una interfaz gráfica simple pero funcional. El juego incluye todas las reglas estándar del ajedrez, como el enroque, la promoción de peones a reina y el jaque mate. El juego está desarrollado en React y utiliza JavaScript para manejar la lógica del juego, como el movimiento de las piezas, la detección de jaque mate y la gestión del estado del juego. El juego es completamente funcional y permite a los jugadores disfrutar de una partida de ajedrez local en sus dispositivos.",
+        images: ["/projects/chess.png", "/projects/chess2.png", "/projects/chess3.png", "/projects/chess4.png"],
+        github: "https://github.com/maherHazem/localChess",
+        website: "https://dainty-meringue-afeedf.netlify.app/",
+        tags: ["React", "JavaScript", "HTML", "CSS", "Juego Local", "Ajedrez", "Librería de Ajedrez", "Interfaz Gráfica", "Diseño responsivo", "Lógica del Juego", "Detección de Jaque Mate", "Gestión del Estado del Juego"]
+    },
+    {
         title: "Aplicación para Cafetería",
         description: "Una aplicación para una cafetería para los empleados con autenticación de usuarios y operaciones CRUD. En las operaciones, puedes agregar, editar, eliminar y ver productos, pedidos y empleados, así como otros elementos relacionados como mesas, reservas, etc. Todo hecho con PhP y MySQL.",
         github: "https://github.com/maherHazem/cafeteria",
@@ -109,6 +119,14 @@ export const projects = {
         description: "A dentist webpage with a modern design, responsive layout and with built-in appointment scheduling, contact form, services section, testimonials, and an Online store, with the colour palette selected by the client. All done with Wordpress.",
         images: ["/projects/clinic.webp", "/projects/clinic2.webp", "/projects/clinic3.webp", "/projects/clinic4.webp", "/projects/clinic5.webp", "/projects/clinic6.webp", "/projects/clinic7.webp", "/projects/clinic8.webp", "/projects/clinic9.webp", "/projects/clinic10.webp", "/projects/clinic11.webp"],
         tags: ["E-Commerce", "Wordpress", "Elementor", "Contact Form", "Appointment Scheduling", "Responsive Design"]
+    },
+    {
+        title: "Local Chess",
+        description: "A local chess game for two players with a simple but functional graphical interface. The game includes all standard chess rules, such as castling, pawn promotion to queen, and checkmate. The game is developed in React and uses JavaScript to handle the game logic, such as piece movement, checkmate detection, and game state management. The game is fully functional and allows players to enjoy a local chess match on their devices.",
+        images: ["/projects/chess.png", "/projects/chess2.png", "/projects/chess3.png", "/projects/chess4.png"],
+        github: "https://github.com/maherHazem/localChess",
+        website: "https://dainty-meringue-afeedf.netlify.app/",
+        tags: ["React", "JavaScript", "HTML", "CSS", "Local Game", "Chess", "Chess Library", "Graphical Interface", "Responsive Design", "Game Logic", "Checkmate Detection", "Game State Management"]
     },
     {
         title: "Coffee Shop application",
